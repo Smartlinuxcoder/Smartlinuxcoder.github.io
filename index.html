@@ -171,43 +171,6 @@ body {
     <meta name="google-site-verification" content="38oUXJQakWezaXTQvJNFtivs8R0nWQOcPw7Gjho8-EE" />
   </head>
   <body>
-    <audio id="music" src="xenogenesis.wav" preload="auto"></audio>
-
-    <script>
-      var isPlaying = false;
-
-      function startMusicAt2SecondMark() {
-        var now = new Date();
-        var seconds = now.getSeconds();
-        var milliseconds = now.getMilliseconds();
-        var delay = 0;
-
-        if (seconds < 2) {
-          delay = (2 - seconds) * 1000 - milliseconds;
-        } else {
-          delay = (62 - seconds) * 1000 - milliseconds;
-        }
-
-        setTimeout(function () {
-          var audio = document.getElementById("music");
-
-          if (!isPlaying) {
-            audio.play();
-            isPlaying = true;
-          }
-        }, delay);
-      }
-
-      document.addEventListener("DOMContentLoaded", startMusicAt2SecondMark);
-
-      document.getElementById("music").addEventListener("ended", function () {
-        var audio = document.getElementById("music");
-
-        audio.pause();
-        audio.currentTime = 0;
-        isPlaying = false;
-      });
-    </script>
     <!-- Navbar -->
     <div class="navbar">
       <a href="#rust">Rust</a>
@@ -311,6 +274,43 @@ body {
       All rights deserved.</p>
       <p>Last change:added wav music version 3</p>
     </div>
+       <audio id="music" src="xenogenesis.wav" preload="auto"></audio>
+
+    <script>
+      var isPlaying = false;
+
+      function startMusicAt2SecondMark() {
+        var now = new Date();
+        var seconds = now.getSeconds();
+        var milliseconds = now.getMilliseconds();
+        var delay = 0;
+
+        if (seconds < 2) {
+          delay = (2 - seconds) * 1000 - milliseconds;
+        } else {
+          delay = (62 - seconds) * 1000 - milliseconds;
+        }
+
+        setTimeout(function () {
+          var audio = document.getElementById("music");
+
+          if (!isPlaying) {
+            audio.play();
+            isPlaying = true;
+          }
+        }, delay);
+      }
+
+      document.addEventListener("DOMContentLoaded", startMusicAt2SecondMark);
+
+      document.getElementById("music").addEventListener("ended", function () {
+        var audio = document.getElementById("music");
+
+        audio.pause();
+        audio.currentTime = 0;
+        isPlaying = false;
+      });
+
   </body>
 </html>
 
