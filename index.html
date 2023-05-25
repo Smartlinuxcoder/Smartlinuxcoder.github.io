@@ -171,6 +171,24 @@ body {
     <meta name="google-site-verification" content="38oUXJQakWezaXTQvJNFtivs8R0nWQOcPw7Gjho8-EE" />
   </head>
   <body>
+    <script>
+    var audio = new Audio('path/to/your/music.mp3');
+    var isPlaying = false;
+
+    audio.addEventListener('canplaythrough', function() {
+      if (!isPlaying) {
+        audio.currentTime = 2 * 60; // Start at 2 minutes
+        audio.play();
+        isPlaying = true;
+      }
+    });
+
+    audio.addEventListener('ended', function() {
+      audio.pause();
+      audio.currentTime = 0;
+      isPlaying = false;
+    });
+  </script>
     <!-- Navbar -->
     <div class="navbar">
       <a href="#rust">Rust</a>
