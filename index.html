@@ -172,22 +172,35 @@ body {
   </head>
   <body>
     <script>
-    var audio = new Audio('xenogenesis.wav');
-    var isPlaying = false;
+      var audio = new Audio('path/to/your/music.wav');
+var isPlaying = false;
 
-    audio.addEventListener('canplaythrough', function() {
-      if (!isPlaying) {
-        audio.currentTime = 2 * 60; // Start at 2 minutes
-        audio.play();
-        isPlaying = true;
-      }
-    });
+function startMusicAt2SecondMark() {
+  var now = new Date();
+  var seconds = now.getSeconds();
+  var delay = 0;
 
-    audio.addEventListener('ended', function() {
-      audio.pause();
-      audio.currentTime = 0;
-      isPlaying = false;
-    });
+  if (seconds >= 2) {
+    delay = (60 - seconds + 2) * 1000; // Calculate delay until the next 2-second mark
+  } else {
+    delay = (2 - seconds) * 1000; // Calculate delay until the current 2-second mark
+  }
+
+  setTimeout(function() {
+    if (!isPlaying) {
+      audio.play();
+      isPlaying = true;
+    }
+  }, delay);
+}
+
+audio.addEventListener('ended', function() {
+  audio.pause();
+  audio.currentTime = 0;
+  isPlaying = false;
+});
+
+startMusicAt2SecondMark();
   </script>
     <!-- Navbar -->
     <div class="navbar">
