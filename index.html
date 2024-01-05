@@ -1,25 +1,52 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Smartlinuxcoder ;)</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="google-site-verification" content="38oUXJQakWezaXTQvJNFtivs8R0nWQOcPw7Gjho8-EE" />
-  </head>
-  <body>
-    <!-- Navbar -->
-    <div class="navbar blue">
-      <a href="#rust">Rust</a>
-      <a href="#python">Python</a>
-      <a href="#about">About</a>
-      <a href="https://github.com/Smartlinuxcoder" class="button">Github</a>
+<html lang="en">
+
+<head>
+  <title>Smartlinuxcoder ;)</title>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta name="msvalidate.01" content="7B24B5EC0C647704BE3CEEFFB8B47666" />
+  <meta
+  name="description"
+  content="Hey! i'm Smartlinuxcoder.
+           This is my website
+           come here and take a seat!">
+</head>
+
+<body>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WPWM2KMV7C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-WPWM2KMV7C');
+  </script>
+  <!-- Header -->
+  <div class="header">
+    <img class="avatar" src="https://avatars.githubusercontent.com/u/123417503?v=4" alt="Avatar">
+    <h1>Hi! I'm Smartlinuxcoder</h1>
+    <p>Welcome to my website!</p>
+    <div class="navbar">
+      <div class="clear-button">
+        <a href="#rust">Rust</a>
+      </div>
+      <div class="clear-button">
+        <a href="#python">Python</a>
+      </div>
+      <div class="clear-button">
+        <a href="#about">About</a>
+      </div>
+      <div class="clear-button">
+        <a href="https://github.com/Smartlinuxcoder" class="button">Github</a>
+      </div>
     </div>
-    
-    <!-- Header -->
-    <div class="header dukeblue">
-      <img class="avatar" src="https://avatars.githubusercontent.com/u/123417503?v=4" alt="Avatar">
-      <h1>Hi! I'm Smartlinuxcoder</h1>
-      <p>Welcome to my website!</p>
-      <div class="container">
+    <div class="container">
       <h1>My GitHub Stats</h1>
       <div class="stats">
         <div class="stat">
@@ -59,24 +86,42 @@
         })
         .catch(error => console.error(error));
     </script>
-    </div>
-    
-    <!-- Main content -->
-    <div class="content">
+  </div>
+
+  <!-- Main content -->
+  <div class="horizontal-container">
+    <div class="content div-element">
       <h1 id="rust">Rust Programming</h1>
       <p>I'm pretty new to rust and I don't know all of its perks but i know one thing: </br>
-      Everything that can be written in Rust will eventually be written in Rust.</p>
-      
-      <h1 id="python">Python Programming</h1>
-      <p>I like its semplicity and its philosophy but it's so SLOW</p>
-      
+        Everything that can be written in Rust will eventually be written in Rust.</p>
+    </div>
+    <div class="content div-element">
       <h1 id="about">About Me</h1>
       <p>Hi, I'm a random programmer who loves Rust and Python! I use arch btw.</p>
-    
-<div class="repositories">
+    </div>
+  </div>
+  <div class="repositories">
+    <h2>My projects</h2>
+    <ul>
+      <li><a class="project smartcloud" href="https://cloud.smartlinux.xyz">
+          <h3>SmartCloud</h3>
+          <p>A simple and private NextCloud instance</p>
+        </a></li>
+      <li><a class="project flappy" href="https://flappy-bird-kaboomjs.netlify.app">
+          <h3>Flappy bird</h3>
+          <p>A flappy bird remake written using KaboomJs</p>
+        </a></li>
+      <li><a class="project outro" href="https://year-outro.netlify.app">
+          <h3>Year outro</h3>
+          <p>A script made using KaboomJs that lines up the outro song to the next minute</p>
+        </a></li>
+    </ul>
+  </div>
+  <div class="repositories">
     <h2>My best repositories</h2>
     <ul id="repository-list"></ul>
   </div>
+
   <script>
     const apiUrl = 'https://api.github.com/users/Smartlinuxcoder/repos';
 
@@ -89,6 +134,12 @@
           const link = document.createElement('a');
           const heading = document.createElement('h3');
           const description = document.createElement('p');
+          link.classList.add('project');
+          // Verifica se la repository contiene un file "pic.png"
+          const backgroundImageUrl = `https://raw.githubusercontent.com/Smartlinuxcoder/${repository.name}/main/pic.png`;
+
+          // Imposta l'immagine come sfondo o utilizza l'avatar dell'utente come default
+          link.style.backgroundImage = `url(${backgroundImageUrl}), url(${repository.owner.avatar_url})`;
 
           link.href = repository.html_url;
           heading.textContent = repository.name;
@@ -101,15 +152,12 @@
         });
       })
       .catch(error => console.error(error));
-  </script>    
-  <script defer data-domain="smartlinuxcoder.is-a.dev" src="https://analytics.is-a.dev/js/script.js"></script>
-  </div>
-    <!-- Footer -->
-    <div class="footer dukeblue">
-      <p>Copyright © 2023 Smartlinuxcoder.
+  </script>
+  <!-- Footer -->
+  <div class="footer dukeblue">
+    <p>Copyright © 2024 Smartlinuxcoder.
       All rights deserved.</p>
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>
-
-
